@@ -1,0 +1,27 @@
+# ==========================================
+# BuildORA - Git Ignore Configuration
+# ==========================================
+
+# Database & Secret Credentials
+config/database.local.php
+.env
+.env.local
+.env.*.local
+
+# User image uploads (keep directory and security rule, ignore user-uploaded files)
+uploads/*
+!uploads/.htaccess
+!uploads/.gitkeep
+
+# Operating System & Temporary Files
+Thumbs.db
+.DS_Store
+*.log
+*.tmp
+error_log
+
+# IDEs and Code Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
