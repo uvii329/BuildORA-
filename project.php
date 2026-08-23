@@ -73,7 +73,7 @@ $stmt->close();
 
 <body>
 
-//NAVBAR
+<!-- NAVBAR -->
 
 <header class="navbar">
 
@@ -130,7 +130,7 @@ $stmt->close();
 </header>
 
 
-//POST DETAILS
+<!-- POST DETAILS -->
 
 <section class="project-detail-section">
 
@@ -340,7 +340,7 @@ $stmt->close();
 </section>
 
 
-//FOOTER
+<!-- FOOTER -->
 
 <footer class="footer">
 

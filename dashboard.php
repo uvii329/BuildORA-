@@ -65,7 +65,7 @@ $postCount = $result ? $result->num_rows : 0;
 
 <body>
 
-//NAVBAR
+<!-- NAVBAR -->
 
 <header class="navbar">
 
@@ -101,7 +101,7 @@ $postCount = $result ? $result->num_rows : 0;
 </header>
 
 
-//DASHBOARD 
+<!-- DASHBOARD -->
 <section class="dashboard-section">
     <div class="container dashboard-container">
         <!-- Header -->
@@ -178,7 +178,7 @@ $postCount = $result ? $result->num_rows : 0;
                                     ?>
                                 </p>
 
-                                //Actions
+                                <!-- Actions -->
                                 <div class="dashboard-actions">
                                     <a href="project.php?id=<?php echo $post["id"]; ?>" class="view-button">
                                         <span>Read</span>
@@ -220,7 +220,7 @@ $postCount = $result ? $result->num_rows : 0;
 </section>
 
 
-//FOOTER
+<!-- FOOTER -->
 
 <footer class="footer">
 

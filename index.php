@@ -103,7 +103,7 @@ $result = $stmt->get_result();
 
 <body>
 
-//NAVBAR 
+<!-- NAVBAR -->
 <header class="navbar">
     <div class="container navbar-container">
         <a href="index.php" class="logo">Build<span class="logo-accent">ORA</span></a>
@@ -132,17 +132,17 @@ $result = $stmt->get_result();
 </header>
 
 
-//EDITORIAL HERO SECTION 
+<!-- EDITORIAL HERO SECTION -->
 <section class="hero">
-    //Ambient Artistic Layered Background & Radiant Visuals
+    <!-- Ambient Artistic Layered Background & Radiant Visuals -->
     <div class="hero-bg-art" aria-hidden="true">
-        //Multi-Orb Radiant Aurora (Dominant on the Right Side)
+        <!-- Multi-Orb Radiant Aurora (Dominant on the Right Side) -->
         <div class="art-orb orb-primary-right"></div>
         <div class="art-orb orb-secondary-blue"></div>
         <div class="art-orb orb-accent-pink"></div>
         <div class="art-orb orb-ambient-left"></div>
 
-        //Abstract Flowing Tech & Storytelling Geometric Visuals (Right Canvas)
+        <!-- Abstract Flowing Tech & Storytelling Geometric Visuals (Right Canvas) -->
         <div class="art-visual-right">
             <svg class="art-flow-svg" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -561,7 +561,7 @@ $result = $stmt->get_result();
 </section>
 
 
-//FOOTER 
+<!-- FOOTER -->
 <footer class="footer">
     <div class="container footer-container">
         <div class="footer-top">

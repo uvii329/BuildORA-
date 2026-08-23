@@ -160,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-//NAVBAR
+<!-- NAVBAR -->
 
 <header class="navbar">
 
@@ -200,7 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </header>
 
 
-//FORM
+<!-- FORM -->
 
 <section class="auth-page">
 
@@ -364,7 +364,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </section>
 
 
-//FOOTER 
+<!-- FOOTER --> 
 
 <footer class="footer">
 
