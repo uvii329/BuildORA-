@@ -2,6 +2,9 @@
 
 **BuildORA** is a full-featured blog and project-showcase web application designed for developers and creators to share the stories, challenges, and lessons learned behind what they build.
 
+🌐 **Live Demo**: [http://buildora.great-site.net/](http://buildora.great-site.net/)  
+💻 **Repository**: [https://github.com/uvii329/BuildORA-](https://github.com/uvii329/BuildORA-)
+
 ---
 
 ## ✨ Features
