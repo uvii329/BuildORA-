@@ -5,22 +5,20 @@
 # 1. Set Default Index Page
 DirectoryIndex index.php index.html
 
-# 2. Disable Directory Browsing
-Options -Indexes
+# 2. Protect Sensitive Files & Database Dumps
+<IfModule mod_authz_core.c>
+    <FilesMatch "^(database\.sql|\.env|\.git|\.htaccess|composer\.json|composer\.lock|database\.local\.php)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <FilesMatch "^(database\.sql|\.env|\.git|\.htaccess|composer\.json|composer\.lock|database\.local\.php)$">
+        Order Allow,Deny
+        Deny from all
+    </FilesMatch>
+</IfModule>
 
-# 3. Protect Sensitive Files & Database Dumps
-<FilesMatch "^(database\.sql|\.env|\.git|\.htaccess|composer\.json|composer\.lock)$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
-
-# 4. Protect Database Config from Direct Browser Access
-<Files "database.php">
-    Order Allow,Deny
-    Deny from all
-</Files>
-
-# 5. Default Charset & Security Headers
+# 3. Default Charset & Security Headers
 AddDefaultCharset UTF-8
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
