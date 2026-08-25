@@ -381,7 +381,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <textarea
                     id="content"
                     name="content"
-                    rows="10"
+                    rows="16"
                     required
                 ><?php
                     echo htmlspecialchars(

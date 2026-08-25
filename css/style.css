@@ -1320,6 +1320,13 @@ img {
     transition: all 0.25s ease;
 }
 
+.form-group textarea {
+    min-height: 420px;
+    line-height: 1.65;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
 .form-group select {
     cursor: pointer;
 }

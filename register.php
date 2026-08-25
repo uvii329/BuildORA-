@@ -63,20 +63,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             );
 
             if ($stmt->execute()) {
+                $newUserId = $stmt->insert_id;
+                $stmt->close();
+                $check->close();
 
-                $message =
-                    "Registration successful! You can now log in.";
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
 
+                // Automatically log in the newly registered user
+                $_SESSION["user_id"] = $newUserId;
+                $_SESSION["username"] = $username;
+                $_SESSION["role"] = "user";
+
+                // Redirect directly to homepage (Explore Posts)
+                header("Location: index.php");
+                exit();
             } else {
-
-                $message =
-                    "Registration failed.";
+                $message = "Registration failed. Please try again.";
+                $stmt->close();
+                $check->close();
             }
-
-            $stmt->close();
         }
-
-        $check->close();
     }
 }
 

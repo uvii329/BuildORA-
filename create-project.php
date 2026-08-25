@@ -303,10 +303,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <textarea
                     id="content"
                     name="content"
-                    rows="10"
+                    rows="16"
                     placeholder="Describe how you built the project, challenges faced, technologies used, and key lessons learned..."
                     required
-                ></textarea>
+                ><?php echo isset($_POST['content']) ? htmlspecialchars($_POST['content']) : ''; ?></textarea>
 
             </div>
 
