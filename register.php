@@ -166,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php endif; ?>
 
 
-        <form method="POST">
+        <form method="POST" action="register.php">
 
             <div class="form-group">
 
@@ -179,6 +179,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     id="username"
                     name="username"
                     placeholder="Choose a username"
+                    autocomplete="username"
                     required
                 >
 
@@ -196,6 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     id="email"
                     name="email"
                     placeholder="you@example.com"
+                    autocomplete="email"
                     required
                 >
 
@@ -213,6 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     id="password"
                     name="password"
                     placeholder="Create a password"
+                    autocomplete="new-password"
                     required
                 >
 

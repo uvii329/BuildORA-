@@ -110,7 +110,19 @@ if ($isAjax) {
     exit();
 }
 
-// Fallback redirect
-$returnUrl = isset($_SERVER["HTTP_REFERER"]) ? $_SERVER["HTTP_REFERER"] : "project.php?id=" . $post_id;
+// Fallback safe internal redirect
+$returnUrl = "project.php?id=" . $post_id;
+if (!empty($_SERVER["HTTP_REFERER"])) {
+    $ref = $_SERVER["HTTP_REFERER"];
+    $host = $_SERVER["HTTP_HOST"] ?? "";
+    if (empty($host) || strpos($ref, $host) !== false) {
+        $parsed = parse_url($ref);
+        $path = $parsed["path"] ?? "";
+        $query = isset($parsed["query"]) ? "?" . $parsed["query"] : "";
+        if (!empty($path) && !preg_match('/^https?:\/\//i', $path)) {
+            $returnUrl = basename($path) . $query;
+        }
+    }
+}
 header("Location: " . $returnUrl);
 exit();

@@ -7,12 +7,19 @@ DirectoryIndex index.php index.html
 
 # 2. Protect Sensitive Files & Database Dumps
 <IfModule mod_authz_core.c>
-    <FilesMatch "^(database\.sql|\.env|\.git|\.htaccess|composer\.json|composer\.lock|database\.local\.php)$">
+    <FilesMatch "\.(sql|env|log|tmp|json|lock|git)$">
+        Require all denied
+    </FilesMatch>
+    <FilesMatch "^(database\.local\.php|database\.example\.php|\.htaccess|\.gitignore)$">
         Require all denied
     </FilesMatch>
 </IfModule>
 <IfModule !mod_authz_core.c>
-    <FilesMatch "^(database\.sql|\.env|\.git|\.htaccess|composer\.json|composer\.lock|database\.local\.php)$">
+    <FilesMatch "\.(sql|env|log|tmp|json|lock|git)$">
+        Order Allow,Deny
+        Deny from all
+    </FilesMatch>
+    <FilesMatch "^(database\.local\.php|database\.example\.php|\.htaccess|\.gitignore)$">
         Order Allow,Deny
         Deny from all
     </FilesMatch>
