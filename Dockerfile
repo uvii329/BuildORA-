@@ -6,23 +6,23 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 # 2. Enable Apache rewrite and headers modules
 RUN a2enmod rewrite headers
 
-# 3. Set working directory
+# 3. Ensure only mpm_prefork is loaded and disable others to prevent AH00534
+RUN a2dismod -f mpm_event mpm_worker 2>/dev/null || true \
+    && a2enmod mpm_prefork
+
+# 4. Configure Apache to dynamically listen on Railway's $PORT (defaults to 80)
+ENV PORT=80
+RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+
+# 5. Set working directory and copy application files
 WORKDIR /var/www/html
-
-# 4. Copy project files
 COPY . /var/www/html/
-
-# 5. Setup dynamic port entrypoint for Railway
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 # 6. Set correct permissions for web server
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# 7. Expose default port
 EXPOSE 80
 
-# 8. Start Apache with dynamic port configuration
-ENTRYPOINT ["docker-entrypoint.sh"]
+# 7. Start Apache using the official standard foreground command
 CMD ["apache2-foreground"]
